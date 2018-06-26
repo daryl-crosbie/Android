@@ -1,0 +1,104 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/background"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    tools:context="com.example.acme.MainActivity" >
+	<LinearLayout
+	    android:id="@+id/layoutTop"
+	    android:layout_width="match_parent"
+	    android:layout_height="70dp">
+	    
+	    <TextView
+	        android:id="@+id/dateLabel"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="10dp"
+	        android:layout_marginTop="20dp"
+	        android:text="@string/date" />
+
+        <TextView
+            android:id="@+id/currency_date"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp" />
+        <Button
+            android:id="@+id/updateBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/update_btn"/>
+	    <TextView
+	        android:id="@+id/from"
+	        android:layout_width="140dp"
+	        android:layout_height="wrap_content"
+	        android:gravity="center"
+	        android:layout_marginLeft="10dp"/>
+	    <TextView
+	        android:id="@+id/to"
+	        android:layout_width="140dp"
+	        android:layout_height="wrap_content"
+	        android:gravity="center"
+	        android:layout_marginLeft="30dp"/>
+	</LinearLayout>
+    <LinearLayout
+        android:id="@+id/layoutPickers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/layoutValues"
+        android:layout_marginTop="15dp" >
+
+        <ListView
+            android:id="@+id/ratesList"
+            android:layout_width="270dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="10dp" >
+        </ListView>
+    	
+        <NumberPicker
+            android:id="@+id/this_currency"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="30dp" />
+
+        <NumberPicker
+            android:id="@+id/that_currency"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutValues"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="65dp"
+        android:gravity="right" >
+        
+        <EditText
+            android:id="@+id/this_currency_value"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:gravity="right"
+            android:hint="Enter amount"
+            android:inputType="numberDecimal"
+            android:maxLines="2" />
+
+        <TextView
+            android:id="@+id/that_currency_value"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="25dp"
+            android:gravity="right"
+            android:textSize="20sp"
+            android:maxLines="2" />
+
+    </LinearLayout>
+</RelativeLayout>

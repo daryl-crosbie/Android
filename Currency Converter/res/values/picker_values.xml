@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="currencies">
+        <item>AUD</item>
+        <item>EUR</item>
+        <item>USD</item>
+        <item>GBP</item>
+        <item>CAD</item>
+        <item>HKD</item>
+        <item>CNY</item>
+        <item>THB</item>
+        <item>JPY</item>
+        <item>KRW</item>
+        <item>SGD</item>
+        <item>MYR</item>
+        <item>PHP</item>
+        <item>VND</item>
+        <item>AED</item>
+    </string-array>
+    <string-array name="countries">
+        <item>Australia</item>
+        <item>Europe</item>
+        <item>America</item>
+        <item>Great Britain</item>
+        <item>Canada</item>
+        <item>Hong Kong</item>
+        <item>China</item>
+        <item>Thailand</item>
+        <item>Japan</item>
+        <item>South Korea</item>
+        <item>Singapore</item>
+        <item>Malaysia</item>
+        <item>Philippines</item>
+        <item>Vietnam</item>
+        <item>United Arab Emirates</item>
+    </string-array>
+</resources>

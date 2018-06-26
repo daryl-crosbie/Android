@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">D-Exchange</string>
+    <string name="colorscheme">Colors</string>
+    <string name="textsize">Text</string>
+    <string name="sunshine">Sunshine</string>
+    <string name="night">Night</string>
+    <string name="standard">Default</string> 
+    <string name="txt_sml">Small Text</string>
+    <string name="txt_med">Med Text</string>
+    <string name="txt_lrg">Large Text</string>
+    <string name="date">Date of Exchange: </string>
+    <string name="update_btn">Update</string>
+
+</resources>

@@ -1,0 +1,61 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.acme.MainActivity" >
+    <item
+      	android:showAsAction="ifRoom"
+      	android:title="Preferences">
+       	<menu>
+           	<item
+               	android:id="@+id/backcolor"
+       			android:title="@string/colorscheme">
+           		<menu>
+           	    	<item
+           	        	android:id="@+id/night"
+               			android:title="@string/night"/>
+            		<item
+                		android:id="@+id/sunshine"
+                		android:title="@string/sunshine"/>
+            		<item
+                		android:id="@+id/standard"
+                		android:title="@string/standard"/>
+            	</menu>
+            </item>
+            <item 
+       	        android:title="Text">
+           		<menu>
+           	    	<item 
+           	        	android:title="Font Size">
+           	        	<menu>
+           	        	    <item
+           	        	        android:id="@+id/sml_txt"
+           	        	        android:title="@string/txt_sml"/>
+           	        	    <item
+           	        	        android:id="@+id/med_txt"
+           	        	        android:title="@string/txt_med"/>
+           	        	    <item
+           	        	        android:id="@+id/lrg_txt"
+           	        	        android:title="@string/txt_lrg"/>
+           	        	</menu>
+           	        </item>
+           	    	<item
+           	        	android:title="Font Style">
+           	        	<menu>
+           	        	    <item
+           	        	        android:id="@+id/italic"
+           	        	        android:title="Italic"/>
+           	        	    <item
+           	        	        android:id="@+id/bold"
+           	        	        android:title="Bold"/>
+           	        	    <item
+           	        	        android:id="@+id/bold_italic"
+           	        	        android:title="Bold Italic"/>
+           	        	  	<item
+           	        	  	    android:id="@+id/normal"
+           	        	  	    android:title="Normal"/>
+           	        	</menu>
+           	        </item>	    
+       			</menu>
+       		</item>
+       	</menu>    
+	</item>     
+</menu>

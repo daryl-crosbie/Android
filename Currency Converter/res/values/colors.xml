@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="NightBG">#261701</color>
+    <color name="NightTxt">#ef9209</color> 
+    <color name="NightList">#f7e5a5</color>
+    <color name="SunshineBG">#fffa72</color>
+    <color name="SunshineTxt">#318df9</color>
+    <color name="SunshineList">#b1d2f9</color> 
+    <color name="White">#FFFFFF</color>
+    <color name="Black">#000000</color>
+    <color name="Grey">#c5cddb</color> 
+    <color name="Red">#ef0909</color>
+    <color name="Green">#0de818</color> 
+</resources>
