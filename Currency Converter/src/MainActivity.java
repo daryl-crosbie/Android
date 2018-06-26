@@ -81,6 +81,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         thatCurr.setMaxValue(currencies.length-1);
         thatCurr.setWrapSelectorWheel(true);
         
+		//Deals with rotation, saved instance state
         if(saved != null){
     		market = (Market) saved.getSerializable("market");
     		thisCurr.setValue(saved.getInt("pick1"));
@@ -92,12 +93,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
     		txtStyle = saved.getInt("txtStyle");
     		setStyling(color, txtSize, txtStyle);
     		setCountries();
+		
+		//Check for file containing exchange rates info
         }else if(ratesCheck()){
         	readRates();
         	loadPref();
         	thatCurr.setValue(1);
         	setCountries();
         	setStyling(color, txtSize, txtStyle);
+		
+		//No data, get connection and call for exchange rates
         }else{ 
         	setStyling(4, 2, 4);
         	thatCurr.setValue(1);
@@ -108,7 +113,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         		Toast.makeText(getApplicationContext(), "Connection failure", Toast.LENGTH_LONG).show();
         	}	
         }
-        
+        //Number picker spin, change data, check connection for conversion
         thisCurr.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
 			@Override
 			public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
@@ -121,7 +126,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 				}
 			}
 		});
-        
+        //Number picker spin, change data, check connection for conversion
         thatCurr.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
 			@Override
 			public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
@@ -134,6 +139,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 				}
 			}
 		});
+		
+		// Check connection, apply listener to value entered field, convert exchange
         if(isNetworkAvailable() || ratesCheck()){
         	thisCurVal.addTextChangedListener(new TextWatcher(){
         		@Override
@@ -165,7 +172,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     		showRates(updated);
     	}
     }
-  
+	
+	//Data to be stored on rotation
 	@Override
 	protected void onSaveInstanceState(Bundle o) {
 		super.onSaveInstanceState(o);
@@ -178,7 +186,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		o.putInt("txtSize", txtSize);
 		o.putInt("txtStyle", txtStyle);
 	}
-
+	
 	public void setStyling(int c, int size, int style){
 		changeBackColor(c);
 		changeTxtSize(size);
@@ -194,6 +202,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		}
 	}
 	
+	// Load preferences from file 
 	public void loadPref(){
 		FileInputStream fis;
     	ObjectInputStream ois;
@@ -219,6 +228,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 	    return activeNetworkInfo != null && activeNetworkInfo.isConnected();
 	}
 	
+	// Check file for rates exists
 	public boolean ratesCheck(){
 		try{
 			File dir = context.getFilesDir();
@@ -232,6 +242,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		return false;
 	}
 	
+	//Read rates info from file, store in treeMap
 	public void readRates(){
 		FileInputStream fis;
     	ObjectInputStream ois;
@@ -254,7 +265,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 			Toast.makeText(getApplicationContext(), "CLASS Error reading", Toast.LENGTH_LONG).show();
 		}
 	}
-
+	
+	//Saves preferences to file 
 	public void savePref(){
 		try{
 			FileOutputStream fos = getApplicationContext().openFileOutput("pref.ser", Context.MODE_PRIVATE);
@@ -291,6 +303,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 		}
 	}
 	
+	//Update Market info, if no market create one
 	@Override
 	public void onClick(View v) {
 		adapter.clear();
@@ -333,6 +346,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         t2.setText(countries[thatCurr.getValue()]);
     }
     
+	// Convert the value of one currency to another, returns result
     public String conversion(String from, String to){
     	double value = Double.parseDouble(thisCurVal.getText().toString());
     	if(!from.equals(market.getBase())){
