@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FungiFinder.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#7ef28f</Color>
+            <Color x:Key="PrimaryDark">#00ff59</Color>
+            <Color x:Key="Accent">#50cdde</Color>
+            <Color x:Key="MagicBorder">#1aa1f0</Color>
+            <Color x:Key="ToxicBorder">#ed0707</Color>
+            <Color x:Key="EdibleBack">#c2ffcb</Color>
+            <Color x:Key="MapBorder">#edf05d</Color>
+            <Color x:Key="MagicBack">#bde7ff</Color>
+            <Color x:Key="ToxicBack">#fc9292</Color>
+            <Color x:Key="MapBack">#feffc2</Color>
+        </ResourceDictionary>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="BorderWidth" Value="2"/>
+            <Setter Property="BorderColor" Value="Black"/>
+            <Setter Property="BackgroundColor" Value="LightGray"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+    </Application.Resources>
+</Application>

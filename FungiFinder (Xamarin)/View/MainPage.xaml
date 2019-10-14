@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:FungiFinder.ViewModel"
+             x:Class="FungiFinder.View.MainPage"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <viewmodel:FungiViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid RowSpacing="0" ColumnSpacing="3" CompressedLayout.IsHeadless="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <ListView ItemsSource="{Binding ListingShrooms}"
+                  ItemSelected="ListItemSelected"
+                  CachingStrategy="RecycleElement"
+                  HasUnevenRows="True"
+                  Grid.ColumnSpan="3"
+            <ListView.ItemTemplate>
+            <DataTemplate>
+                    <ViewCell>
+                        <Grid ColumnSpacing="20" Padding="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding Image}"
+                                   BackgroundColor="{StaticResource PrimaryDark}"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   WidthRequest="100"
+                                   HeightRequest="100"
+                                   Aspect="AspectFill"/>
+                            <StackLayout Grid.Column="1"
+                                         Grid.ColumnSpan="2"
+                                         VerticalOptions="Center">
+                                <Label Text="{Binding Name}"/>
+                                <Label Text="{Binding Location}"/>
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Text="Edible"
+                Command="{Binding ShowEdibles}"
+                IsEnabled="{Binding IsNotBusy}"
+                Style="{StaticResource ButtonStyle}"
+                BorderColor="{StaticResource PrimaryDark}"
+                BackgroundColor="{StaticResource EdibleBack}"
+                Grid.Row="1"
+                Grid.Column="0"/>
+        <Button Text="Magic"
+                Command="{Binding ShowMagic}"
+                IsEnabled="{Binding IsNotBusy}"
+                Style="{StaticResource ButtonStyle}"
+                BorderColor="{StaticResource MagicBorder}"
+                BackgroundColor="{StaticResource MagicBack}"
+                Grid.Row="1"
+                Grid.Column="1"/>
+        <Button Text="Toxic"
+                Command="{Binding ShowToxic}"
+                IsEnabled="{Binding IsNotBusy}"
+                Style="{StaticResource ButtonStyle}"
+                BorderColor="{StaticResource ToxicBorder}"
+                BackgroundColor="{StaticResource ToxicBack}"
+                Grid.Row="1"
+                Grid.Column="2"/>
+        <Button Text="Find closest"
+                Command="{Binding GetNearestCommand}"
+                Style="{StaticResource ButtonStyle}"
+                Grid.Row="2"
+                Grid.Column="0"/>
+        <Button Text="In Season"
+                Command="{Binding GetInSeason}"
+                Style="{StaticResource ButtonStyle}"
+                Grid.Row="2"
+                Grid.Column="1"/>
+        <Button Text="Show All"
+                Command="{Binding GetAll}"
+                Style="{StaticResource ButtonStyle}"
+                Grid.Row="2"
+                Grid.Column="2"/>
+
+        <ActivityIndicator IsVisible="{Binding IsBusy}"
+                           IsRunning="{Binding IsBusy}"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           Grid.RowSpan="3"
+                           Grid.ColumnSpan="3"/>
+    </Grid>
+</ContentPage>

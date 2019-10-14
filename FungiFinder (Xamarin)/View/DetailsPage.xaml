@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FungiFinder.View.DetailsPage"
+             Title="{Binding Title}">
+
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <BoxView HorizontalOptions="FillAndExpand"
+                         HeightRequest="100"
+                         Grid.ColumnSpan="3"
+                         BackgroundColor="{StaticResource Primary}"/>
+                <Button Text="Show Map"
+                    Command="{Binding ShowMap}"
+                    Style="{StaticResource ButtonStyle}"
+                    BorderColor="{StaticResource MapBorder}"
+                    BackgroundColor="{StaticResource MapBack}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="End"/>
+
+                <StackLayout Grid.Column="1"
+                             Grid.RowSpan="2"
+                             Grid.ColumnSpan="2"
+                             Margin="50,50,10,0">
+                    <Image Source="{Binding Mushroom.Image}"
+                           HeightRequest="100"
+                           WidthRequest="100"
+                           BackgroundColor="Aqua"
+                           Aspect="Fill"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="1" 
+                             Margin="10"
+                             HorizontalOptions="Center">
+                    <Label FontSize="Small" 
+                       Text="{Binding Mushroom.Location}"/>
+                    <Label FontSize="Small"
+                       Text="{Binding Mushroom.Usage}"/>
+                </StackLayout>
+            </Grid>
+            <Label Text="{Binding Mushroom.Name}"
+                   HorizontalOptions="Center"
+                   FontSize="Medium"
+                   Margin="0,20,0,0"
+                   FontAttributes="Bold"/>
+            <BoxView HeightRequest="2" Color="LightGray" Margin="5,0,5,0"/>
+        <ScrollView>
+            <Label Text="{Binding Mushroom.Details}"
+                   Margin="30,10,30,5"/>
+        </ScrollView>
+    </StackLayout>
+    
+</ContentPage> 
