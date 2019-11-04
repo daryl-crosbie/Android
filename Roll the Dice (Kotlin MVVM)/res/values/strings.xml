@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Roll the Dice</string>
+    <string name="action_settings">Settings</string>
+    <string name="dice_image">Dice Image</string>
+    <string name="button_text">Roll the Dice</string>
+    <string name="input_hint">Enter your guess</string>
+    <string name="combined_value_text">The dice value: </string>
+</resources>

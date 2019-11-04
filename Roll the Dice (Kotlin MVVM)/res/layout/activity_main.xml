@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="vm"
+            type="dev.daryl.roll_the_dice.Mvvm" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_image"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="72dp"
+        android:baselineAlignBottom="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:imageResource="@{vm.diceOne}"
+        app:rotate="@{vm.shaking}"/>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:baselineAlignBottom="true"
+        app:layout_constraintBaseline_toBaselineOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:imageResource="@{vm.diceTwo}"
+        app:rotate="@{vm.shaking}"/>
+
+    <EditText
+        android:id="@+id/yourGuess"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginLeft="68dp"
+        android:layout_marginTop="72dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Guess"
+        android:inputType="number"
+        android:maxLength="2"
+        android:text="@={vm.yourGuess}"
+        android:textSize="24sp"
+        android:textColor="#000"
+        android:background="#f2d068"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/roll_btn"
+        style="@style/button"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="Roll"
+        android:onClick="@{() -> vm.rollDice()}"
+
+        app:layout_constraintBaseline_toBaselineOf="@+id/yourGuess"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/displayed_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:text="The Dice Total: "
+        android:textSize="24sp"
+        android:textColor="#ffffff"
+        app:layout_constraintBaseline_toBaselineOf="@+id/dice_result"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="30dp"
+        android:text="@{vm.guessResult}"
+        android:textColor="#ffffff"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/displayed_text" />
+
+    <TextView
+        android:id="@+id/dice_history"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="40dp"
+        android:text="@{vm.diceHistory}"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/message" />
+
+    <TextView
+        android:id="@+id/dice_result"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:text="@{vm.diceResult}"
+        android:textColor="#ffffff"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="@+id/roll_btn"
+        app:layout_constraintTop_toBottomOf="@+id/roll_btn" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
