@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">D-Exchange</string>
+    <string name="mode">Mode</string>
+    <string name="dark">Dark</string>
+    <string name="light">Light</string>
+    <string name="menu">Menu</string>
+    <string name="options">Options</string>
+    <string name="currencies">Currencies</string>
+    <string name="list_btn">Show All</string>
+    <string name="equals">=</string>
+    <string name="share">Share</string>
+    <string name="rate">Rate this App</string>
+    <string name="ok">Ok</string>
+    <string name="flag2">flag2</string>
+    <string name="flag1">flag1</string>
+    <string name="blank" />
+    <string name="two_decimal_places">.00</string>
+</resources>
